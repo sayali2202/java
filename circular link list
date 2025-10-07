@@ -1,0 +1,117 @@
+import java.util.*;
+//circular linked list
+public class CIRLL{
+    Node head;
+    Node tail;
+
+    class Node{
+        int data;
+        Node next;
+
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+//addfirst
+    public void addfirst(int data){
+        Node newnode=new Node(data);
+        if (tail==null){
+            head=tail=newnode;
+            return;
+        }
+        newnode.next=head;
+        head=newnode;
+        tail.next=head;
+
+    }
+
+    //addlast
+    public void addlast(int data){
+        Node newnode=new Node(data);
+        if (tail==null){
+            head=tail=newnode;
+            tail.next=head;
+            return;
+        }
+
+        tail.next=newnode;
+        tail=newnode;
+        tail.next=head;
+    }
+
+    //deletefirst
+
+    public void deletefirst(){
+        if(tail==null){
+            System.out.println("Noting");
+            return;
+        }
+        if(head==tail){
+            head=tail=null;
+            return;
+        }
+        head=head.next;
+        tail.next=head;
+    }
+
+    //deletelast
+    public void deletelast(){
+        if(tail==null){
+            System.out.println("nonono");
+            return;
+        }
+
+        if(head==tail){
+            head=tail=null;
+            return;
+        }
+
+        Node cur=head;
+        //Node Last=head.next;
+        while(cur.next!=tail){
+            cur=cur.next;
+           // SL=SL.next;
+           // Last=Last.next;
+        }
+        //SL.next=head;
+        tail=cur;
+        tail.next=head;
+    }
+
+    //print
+    public void printll(){
+        if(tail==null){
+            System.out.println("NOOO");
+            return;
+        }
+
+        System.out.print(head.data+"->");
+        Node cur=head.next;
+        while(cur!=head){
+            System.out.print(cur.data+"->");
+            cur=cur.next;
+        }
+        System.out.print(cur.data);
+        System.out.println("");
+        
+    }
+
+    public static void main(String[] args){
+        CIRLL LL=new CIRLL();
+        LL.addfirst(10);
+        LL.addfirst(20);
+        LL.addfirst(30);
+        LL.printll();
+        LL.addlast(100);
+        LL.addlast(200);
+        LL.addlast(300);
+        LL.printll();
+        LL.deletefirst();
+        LL.printll();
+        LL.deletelast();
+        LL.printll();
+    }
+
+
+}
