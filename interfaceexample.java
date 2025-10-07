@@ -1,10 +1,10 @@
-// Define an interface
+
 interface Animal {
-    void makeSound();  // abstract method
+    void makeSound();  
     void eat();
 }
 
-// Implementing the interface
+
 class Dog implements Animal {
     public void makeSound() {
         System.out.println("Woof! Woof!");
@@ -25,16 +25,17 @@ class Cat implements Animal {
     }
 }
 
-// Main class to run the code
+
 public class InterfaceExample {
     public static void main(String[] args) {
         Animal myDog = new Dog();
         Animal myCat = new Cat();
 
-        myDog.makeSound();  // Output: Woof! Woof!
-        myDog.eat();        // Output: Dog is eating...
+        myDog.makeSound();  
+        myDog.eat();        
 
-        myCat.makeSound();  // Output: Meow!
+        myCat.makeSound();  
         myCat.eat();        // Output: Cat is eating...
     }
 }
+
