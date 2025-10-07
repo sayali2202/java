@@ -1,0 +1,69 @@
+import java.util.*;
+//Stack using Linked List
+public class stackLL {
+    Node head;
+
+    class Node{
+        int data;
+        Node next;
+
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+
+//addfirst
+    public void push(int data){
+        Node newnode=new Node(data);
+        if(head==null){
+            head=newnode;
+            System.out.println("Push:"+head.data);
+            return;
+        }
+        newnode.next=head;
+        head=newnode;
+        System.out.println("Push:"+head.data);
+    }
+
+//deletefirst
+    public void pop(){
+        if(head==null){
+            System.out.println("EMPTY");
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            return;
+        }
+        head=head.next;
+        System.out.println("POPED:"+head.data);
+
+    }
+//printlist
+    public void peep(){
+        if(head==null){
+            System.out.println("Nothing to peep");
+            return;
+        }
+
+        System.out.println("PEEPED:"+head.data);
+    }
+
+
+    public static void main(String[] args){
+        stackLL SLL=new stackLL();
+        SLL.push(10);
+        SLL.push(20);
+        SLL.push(30);
+        SLL.peep();
+        SLL.pop();
+        SLL.peep();
+        SLL.pop();
+        SLL.peep();
+        SLL.pop();
+        SLL.peep();
+        
+    }
+    
+}
